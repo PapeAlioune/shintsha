@@ -10,3 +10,8 @@ function web3(state = {}, action) {
       return state
   }
 }
+const rootReducer = combineReducers({
+  web3
+})
+
+export default rootReducer

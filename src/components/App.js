@@ -12,7 +12,6 @@ class App extends Component {
   async loadBlockchainData(dispatch) {
     const web3 = loadWeb3(dispatch)
     await web3.eth.net.getNetworkType()
-    const networkId = await web3.eth.net.getId()
     await loadAccount(web3, dispatch)
   }
 
