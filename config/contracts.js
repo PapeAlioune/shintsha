@@ -97,22 +97,32 @@ module.exports = {
     },
     CryptoWorldWar: {
       args: [
-        "Shinstha",
-        "PS"
-      ]
-    },
-    ERC721Full: {
-      args: [
-        "Shinstha",
+        "Project Shintsha",
         "PS"
       ]
     },
     ERC721Metadata: {
       args: [
-        "Shinstha",
+        "Project Shintsha",
         "PS"
       ]
+    },
+    TToken:{
+      args:[
+        "T Token",
+        "TS",
+        18,
+        99999999
+      ]
+    },
+    ERC721Full: {
+      args: [
+        "Project Shintsha",
+        "PS",
+        "$TToken"
+      ]
     }
+
   }
   // you can name an environment with specific settings and then specify with
   // "embark run custom_name" or "embark blockchain custom_name"
