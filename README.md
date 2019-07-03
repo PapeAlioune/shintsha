@@ -15,7 +15,23 @@ to run the embark server run
  if you wish to connect to the Blockchain Network the farmers will be using run
 ### `embark run ShinsthaChain --nodashboard`
 
+### once running please check the embarkArtifacts folder contracts subfolder you will find the contracts deployed
+To access the contract in a UI component
+do the following
+const BountyContract = require("../../embarkArtifacts/contracts/BountyContract").default
 
+### note the path might need to be changed depending on where the component is located in the project
+Emabrk deploys the contract for you theres no need to run truffle migrate everytime because it does that for you just make sure you ran the command
+### `embark run ShinsthaChain --nodashboard`
+everytime you make a change to the contract it will compile it for you
+
+
+Embark has web3 intergrated in it just
+  import EmbarkJS from "../../embarkArtifacts/embarkjs";
+into your component and you can easily access the apis in web3 like so
+
+var test = EmbarkJS.Utils.fromAscii("hey")
+every api available in web3 is also available in Embark
 
 
 
