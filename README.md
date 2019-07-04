@@ -22,7 +22,7 @@ const BountyContract = require("../../embarkArtifacts/contracts/BountyContract")
 
 ### note the path might need to be changed depending on where the component is located in the project
 Emabrk deploys the contract for you theres no need to run truffle migrate everytime because it does that for you just make sure you ran the command
-### `embark run ShinsthaChain --nodashboard`
+### `embark run ShintshaChain --nodashboard`
 everytime you make a change to the contract it will compile it for you
 
 
