@@ -84,45 +84,40 @@ module.exports = {
     deployment: {
       protocol: "http",
       type: "rpc",
-      host: "0.0.0.0",
+      host: "146.231.123.137",
       port: "11000",
-    }
-  },
-  gas: "8000000",
-  contracts: {
-    RhodeIT: {
-      args: [
+    },
+    gas: "8000000",
+    contracts: {
+      ERC721Metadata: {
+        args: [
+          "Project Shintsha",
+          "PS"
+        ]
+      },
+      TToken: {
+        args: [
+          "T Token",
+          "TS",
+          18,
+          99999999
+        ]
+      },
+      ERC721Full: {
+        args: [
+          "Project Shintsha",
+          "PS"
+        ]
+      },
+      Shintsha: {
+        args: [
+          "Project Shintsha",
+          "PS",
+          "$TToken"
+        ]
+      }
 
-      ]
-    },
-    CryptoWorldWar: {
-      args: [
-        "Project Shintsha",
-        "PS"
-      ]
-    },
-    ERC721Metadata: {
-      args: [
-        "Project Shintsha",
-        "PS"
-      ]
-    },
-    TToken:{
-      args:[
-        "T Token",
-        "TS",
-        18,
-        99999999
-      ]
-    },
-    ERC721Full: {
-      args: [
-        "Project Shintsha",
-        "PS",
-        "$TToken"
-      ]
     }
-
   }
   // you can name an environment with specific settings and then specify with
   // "embark run custom_name" or "embark blockchain custom_name"
