@@ -44,7 +44,11 @@ function sendMessage(to, message,callMain) {
       })
     .done();
 }
-function resetToMainmenu(from){
+function resetToMainmenu(from,setToNull){
+  if(setToNull){
+    db.run("REPLACE INTO cache VALUES('main',"+from+','+'1'+")")
+    return 
+  }
   db.run("REPLACE INTO cache VALUES('main',"+from+','+'1'+")")
 }
  function main(from){
@@ -168,7 +172,7 @@ s.on('request', function(request, response) {
                 console.log(farmDetails)
                 farmDetails=removeCfromDetails(farmDetails)
                 responseMessage ="Succesfully registered farm ✓ \n" + "FarmName: "+farmDetails[0] +"\nFarmAddress: "+farmDetails[1]+"\nCountry: "+farmDetails[2]+"\nThe next step ⏩ would be to purchase T-Tokens 💰"
-              resetToMainmenu(from)
+              resetToMainmenu(from,true)
                 sendMessage(from,responseMessage,true)
                 break
                 default:

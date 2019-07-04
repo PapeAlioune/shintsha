@@ -13,7 +13,7 @@ contract TToken is IERC20 {
     string private _symbol;
     uint8 private _decimals;
     uint256 _totalSupply;
-    address owner;
+    address tokenOwner;
 
     /**
      * @dev Sets the values for `name`, `symbol`, and `decimals`. All three of
@@ -25,8 +25,8 @@ contract TToken is IERC20 {
         _symbol = symbol;
         _decimals = decimals;
         _totalSupply = initialSupply * 10 ** uint(decimals);
-        owner = msg.sender;
-        _mint(owner, _totalSupply);
+        tokenOwner = msg.sender;
+        _mint(tokenOwner, _totalSupply);
     }
 
     /**
