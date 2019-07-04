@@ -13,7 +13,7 @@ In the project directory, you can run:
 to run the embark server run
 ### `embark run --nodashboard`
  if you wish to connect to the Blockchain Network the farmers will be using run
-### `embark run ShinsthaChain --nodashboard`
+### `embark run ShintshaChain --nodashboard`
 
 ### once running please check the embarkArtifacts folder contracts subfolder you will find the contracts deployed
 To access the contract in a UI component
