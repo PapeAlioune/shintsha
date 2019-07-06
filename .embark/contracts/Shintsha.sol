@@ -1,7 +1,7 @@
 pragma solidity >= 0.5 .0;
 
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/ERC721Full.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/IERC20.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/ERC721Full.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/IERC20.sol";
 //@dev the contract is not optimised for gas 
 contract Shintsha is ERC721Full {
 
@@ -14,7 +14,6 @@ contract Shintsha is ERC721Full {
     @atr value represents the value of the Product the value in T-Tokens (see documentation)
     @ar sellingPrice the price at which the product can be sold for in T-Tokens
     @atr category representst the categories the product falls under string seperated by semicolons if product falls in more than one category
-    @atr Description represents a description of what the Product is 
     @atr active used to check if the current instance is active or not
     */
     struct Product {
@@ -24,7 +23,6 @@ contract Shintsha is ERC721Full {
         uint256 value;
         uint256 sellingPrice;
         string category;
-        string description;
         bool active;
     }
     /*
@@ -137,7 +135,7 @@ contract Shintsha is ERC721Full {
         return Farmers[msg.sender].active;
     }
 
-    function registerProduct(uint256 value, string memory categories, uint256 sellingprice, string memory description, string memory name) public returns(bool) {
+    function registerProduct(uint256 value, string memory categories, uint256 sellingprice,string memory name) public returns(bool) {
         require(msg.sender != address(0), "Invalid sender address");
         require(value > 0, "Product value must be greater than 0");
         require(Farmers[msg.sender].active, "farmer not registered");
@@ -146,7 +144,6 @@ contract Shintsha is ERC721Full {
         RegisteredProducts[currentIndexProducts].index = currentIndexProducts;
         RegisteredProducts[currentIndexProducts].value = value;
         RegisteredProducts[currentIndexProducts].category = categories;
-        RegisteredProducts[currentIndexProducts].description = description;
         RegisteredProducts[currentIndexProducts].active = true;
         RegisteredProducts[currentIndexProducts].name = name;
         RegisteredProducts[currentIndexProducts].sellingPrice = sellingprice;
@@ -196,45 +193,23 @@ contract Shintsha is ERC721Full {
     function acceptInvestment(bytes32 referenceid) public returns(bool) {
         require(msg.sender != address(0), "Invalid sender address");
         require(Farmers[msg.sender].active, "farmer not registered");
-        require(Farmers[msg.sender].investmentsPending[referenceid].active, "investment is not pending");
-        require(!Farmers[msg.sender].investmentsAccepted[referenceid].active, "investment already accepted");
-        require(RegisteredInvestors[Farmers[msg.sender].investmentsPending[referenceid].investor].active, "investor no longer registered");
-        Farmers[msg.sender].acceptedInvestmentIds.push(referenceid);
-        RegisteredInvestors[Farmers[msg.sender].investmentsPending[referenceid].investor].succesfullInvestments[referenceid] = Farmers[msg.sender].investmentsPending[referenceid];
-        Farmers[msg.sender].investmentsAccepted[referenceid] = Farmers[msg.sender].investmentsPending[referenceid];
-        delete Farmers[msg.sender].investmentsPending[referenceid];
+        
         return true;
     }
 
-    function getTokenBalance() public view returns(uint256) {
+    function setBalance() public view returns(uint256) {
         require(msg.sender != address(0), "Invalid sender address");
         require(Farmers[msg.sender].active, "farmer not registered");
         return TToken.balanceOf(msg.sender);
 
     }
 
-    function rejectInvestment(bytes32 referenceid) public returns(bool) {
-        require(msg.sender != address(0), "Invalid sender address");
-        require(Farmers[msg.sender].active, "farmer not registered");
-        require(Farmers[msg.sender].investmentsPending[referenceid].active, "investment is not pending");
-        require(!Farmers[msg.sender].investmentsAccepted[referenceid].active, "investment already accepted");
-        require(!Farmers[msg.sender].investmentsrejected[referenceid].active, "investment already rejected");
-        require(RegisteredInvestors[Farmers[msg.sender].investmentsPending[referenceid].investor].active, "investor no longer registered");
-        Farmers[msg.sender].rejectedInvestmentIds.push(referenceid);
-        RegisteredInvestors[Farmers[msg.sender].investmentsPending[referenceid].investor].rejectedInvestments[referenceid] = Farmers[msg.sender].investmentsPending[referenceid];
-        Farmers[msg.sender].investmentsrejected[referenceid] = Farmers[msg.sender].investmentsPending[referenceid];
-        delete Farmers[msg.sender].investmentsPending[referenceid];
-        return true;
-
-    }
     /*==============Investors functions Definition Section==============*/
     function registerInvestor() public returns(bool) {
         require(msg.sender != address(0), "Invalid sender address");
         require(TToken.balanceOf(msg.sender) >= investorRegPrice, "insufficient token balance");
         require(!RegisteredInvestors[msg.sender].active, "Investor already registered");
-        RegisteredInvestors[msg.sender].active = true;
-        RegisteredInvestors[msg.sender].id = msg.sender;
-        return TToken.transferFrom(msg.sender, owner, investorRegPrice);
+      return true;
 
     }
 
@@ -243,41 +218,8 @@ contract Shintsha is ERC721Full {
         return RegisteredInvestors[msg.sender].active;
     }
 
-    function proposeInvestment(address farm, string memory proposal) public returns(bool) {
-        require(msg.sender != address(0), "Invalid sender address");
-        require(farm != address(0), "Invalid farm address");
-        require(RegisteredInvestors[msg.sender].active, "Investor not registered");
-        require(Farmers[farm].active, "farmer not registered");
-        require(farm != msg.sender, "cannot invest in own farm");
-        Investment memory investment = Investment(msg.sender, proposal, false, false, true);
-        bytes32 referenceid = keccak256(abi.encode(farm, proposal, msg.sender, now));
-        RegisteredInvestors[msg.sender].submittedInvestments[referenceid] = investment;
-        Farmers[farm].investmentsPending[referenceid] = investment;
-        emit emitProposalId(referenceid);
-        return true;
-    }
+  /*============Admin function Definition Section==============*/
 
-    function InvestmentExists(bytes32 referenceid) public view returns(bool) {
-        require(msg.sender != address(0), "Invalid sender address");
-        require(RegisteredInvestors[msg.sender].active, "Investor not registered");
-        return RegisteredInvestors[msg.sender].submittedInvestments[referenceid].active;
-    }
 
-    function widthdrawInvestment(bytes32 referenceid, address farm) public returns(bool) {
-        require(msg.sender != address(0), "Invalid sender address");
-        require(RegisteredInvestors[msg.sender].active, "Investor not registered");
-        require(Farmers[farm].active, "farmer not registered");
-        require(!Farmers[farm].investmentsAccepted[referenceid].active, "investment already accepted");
-        delete RegisteredInvestors[msg.sender].submittedInvestments[referenceid];
-        delete Farmers[farm].investmentsPending[referenceid];
-    }
-    /*==============Admin function Definition Section==============*/
-
-    function buyTokens(address to, uint256 amount) onlyAdmin public returns(bool) {
-        require(msg.sender != address(0), "invalid sender address");
-        require(to != address(0), "invalid reciepient address");
-        require(amount > 0, "amount to be transfered has to be greater than 0");
-        return TToken.transferFrom(owner, to, amount);
-    }
 
 }

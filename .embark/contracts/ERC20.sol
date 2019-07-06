@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/IERC20.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/SafeMath.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/IERC20.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/SafeMath.sol";
 
 /**
  * @dev Implementation of the `IERC20` interface.

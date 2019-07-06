@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/IERC721Enumerable.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/ERC721.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/ERC165.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/IERC721Enumerable.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/ERC721.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/ERC165.sol";
 
 /**
  * @title ERC-721 Non-Fungible Token with optional enumeration extension logic

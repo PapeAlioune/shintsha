@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/ERC721.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/IERC721Metadata.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/ERC165.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/ERC721.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/IERC721Metadata.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/ERC165.sol";
 
 contract ERC721Metadata is ERC165, ERC721, IERC721Metadata {
     // Token name

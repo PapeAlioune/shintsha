@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/IERC165.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/IERC165.sol";
 
 /**
  * @dev Implementation of the `IERC165` interface.

@@ -1,10 +1,10 @@
 /* eslint-disable */
 
-const EmbarkJS = require("C:/Users/g14m1190/Documents/GitHub/shintsha/embarkArtifacts/modules/embarkjs").default;
+const EmbarkJS = require("C:/Users/g14m1190/Documents/GitHub/shinstha/embarkArtifacts/modules/embarkjs").default;
 export default EmbarkJS;
 global.EmbarkJS = EmbarkJS
 
-const Web3 = global.__Web3 || require('C:/Users/g14m1190/Documents/GitHub/shintsha/embarkArtifacts/modules/web3');
+const Web3 = global.__Web3 || require('C:/Users/g14m1190/Documents/GitHub/shinstha/embarkArtifacts/modules/web3');
 global.Web3 = Web3;/*global Web3*/
 const embarkJSConnectorWeb3 = {};
 
@@ -67,10 +67,10 @@ embarkJSConnectorWeb3.getNetworkId = function () {
 EmbarkJS.Blockchain.registerProvider('web3', embarkJSConnectorWeb3);
 EmbarkJS.Blockchain.setProvider('web3', {});
 if (!global.__Web3) {
-  const web3ConnectionConfig = require('C:/Users/g14m1190/Documents/GitHub/shintsha/embarkArtifacts/config/blockchain.json');
+  const web3ConnectionConfig = require('C:/Users/g14m1190/Documents/GitHub/shinstha/embarkArtifacts/config/blockchain.json');
   EmbarkJS.Blockchain.connect(web3ConnectionConfig, (err) => {if (err) { console.error(err); } });
 }
-const namehash = global.namehash || require('C:/Users/g14m1190/Documents/GitHub/shintsha/embarkArtifacts/modules/eth-ens-namehash');"use strict";
+const namehash = global.namehash || require('C:/Users/g14m1190/Documents/GitHub/shinstha/embarkArtifacts/modules/eth-ens-namehash');"use strict";
 
 /*global namehash*/
 // Price of ENS registration contract functions
@@ -477,7 +477,7 @@ __embarkENS.isAvailable = function () {
 };
 //# sourceMappingURL=embarkjs.js.map
 EmbarkJS.Names.registerProvider('ens', __embarkENS);
-const IpfsApi = global.IpfsApi || require('C:/Users/g14m1190/Documents/GitHub/shintsha/embarkArtifacts/modules/ipfs-api');
+const IpfsApi = global.IpfsApi || require('C:/Users/g14m1190/Documents/GitHub/shinstha/embarkArtifacts/modules/ipfs-api');
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime-corejs2/helpers/interopRequireDefault");

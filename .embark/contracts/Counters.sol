@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/SafeMath.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/SafeMath.sol";
 
 /**
  * @title Counters

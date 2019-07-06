@@ -1,11 +1,11 @@
 pragma solidity ^0.5.0;
 
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/IERC721.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/IERC721Receiver.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/SafeMath.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/Address.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/Counters.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/ERC165.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/IERC721.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/IERC721Receiver.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/SafeMath.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/Address.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/Counters.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/ERC165.sol";
 
 /**
  * @title ERC721 Non-Fungible Token Standard basic implementation

@@ -1,7 +1,7 @@
 pragma solidity >= 0.5 .0;
 
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/IERC20.sol";
-import "C:/Users/g14m1190/Documents/GitHub/shintsha/.embark/contracts/SafeMath.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/IERC20.sol";
+import "C:/Users/g14m1190/Documents/GitHub/shinstha/.embark/contracts/SafeMath.sol";
 
 /**
  * @dev Optional functions from the ERC20 standard.
@@ -13,7 +13,7 @@ contract TToken is IERC20 {
     string private _symbol;
     uint8 private _decimals;
     uint256 _totalSupply;
-    address owner;
+    address tokenOwner;
 
     /**
      * @dev Sets the values for `name`, `symbol`, and `decimals`. All three of
@@ -25,8 +25,8 @@ contract TToken is IERC20 {
         _symbol = symbol;
         _decimals = decimals;
         _totalSupply = initialSupply * 10 ** uint(decimals);
-        owner = msg.sender;
-        _mint(owner, _totalSupply);
+        tokenOwner = msg.sender;
+        _mint(tokenOwner, _totalSupply);
     }
 
     /**
