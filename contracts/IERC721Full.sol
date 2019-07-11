@@ -11,3 +11,4 @@ import "./IERC721Metadata.sol";
 contract IERC721Full is IERC721, IERC721Enumerable, IERC721Metadata {
     // solhint-disable-previous-line no-empty-blocks
 }
+

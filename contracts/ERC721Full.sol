@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^ 0.5 .0;
 
 import "./ERC721.sol";
 import "./ERC721Enumerable.sol";
@@ -11,7 +11,19 @@ import "./ERC721Metadata.sol";
  * @dev see https://eips.ethereum.org/EIPS/eip-721
  */
 contract ERC721Full is ERC721, ERC721Enumerable, ERC721Metadata {
-    constructor (string memory name, string memory symbol) public ERC721Metadata(name, symbol) {
+    constructor(string memory name, string memory symbol) public ERC721Metadata(name, symbol) {
         // solhint-disable-previous-line no-empty-blocks
+    }
+
+    function mint(address to, uint256 tokenId) public  {
+        _mint(to, tokenId);
+    }
+
+    function exists(uint256 tokenId) public view returns(bool) {
+        return _exists(tokenId);
+    }
+
+    function burn(address owner, uint256 tokenId) public {
+        _burn(owner, tokenId);
     }
 }

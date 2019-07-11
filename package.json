@@ -12,6 +12,7 @@
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "dotenv": "^8.0.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "http": "0.0.0",
     "keythereum": "^1.0.4",
@@ -29,6 +30,8 @@
     "webpack": "^4.35.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-plugin-eslint": "^3.9.0",
     "@vue/cli-service": "^3.9.0",

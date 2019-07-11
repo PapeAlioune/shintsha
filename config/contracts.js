@@ -111,9 +111,6 @@ module.exports = {
       },
       Shintsha: {
         args: [
-          "Project Shintsha",
-          "PS",
-          "$TToken"
         ]
       }
 
